@@ -37,7 +37,7 @@ a:hover {
   overflow-y: scroll;
   color: #ffff00;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.96);
+  background-color: rgba(0, 0, 0, 0.98);
   top: 0;
   bottom: 0;
   left: 0;
@@ -51,9 +51,10 @@ a:hover {
   display: block !important;
 }
 
-.movie-details-close {
+.close-wrapper {
   text-align: end;
   margin-bottom: 3rem;
+  align-self: flex-start;
 }
 
 .close {
@@ -70,6 +71,7 @@ a:hover {
 
 .movie-details-body > img {
   width: 300px;
+  box-shadow: 0px 0px 10px 3px rgba(255, 255, 255, 0.9);
 }
 
 .movie-details-descp {
@@ -100,6 +102,51 @@ a:hover {
   /* scrollbar-color: #050a30 #050a30; */
 }
 
+#movie-per-genre {
+  display: flex;
+  flex-wrap: wrap;
+  position: fixed;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  overflow-y: scroll;
+  color: #ffff00;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.98);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 3rem;
+  display: none;
+  z-index: 99;
+}
+
+.movie-per-genre-container {
+  display: flex;
+  align-self: baseline;
+  flex-wrap: wrap;
+}
+
+.movie-per-genre-container:nth-child(1) {
+  margin-left: 0;
+}
+
+.movie-per-genre-card {
+  padding: 2rem;
+  margin: 1rem;
+  background-color: #ffff00;
+  border-radius: 10px 50px;
+  cursor: pointer;
+  transition: ease-in-out.31s;
+  align-self: center;
+}
+
+.movie-per-genre-card-header {
+}
+
+.movie-per-genre-card-body {
+}
+
 #genres {
   display: flex;
   flex-wrap: wrap;
@@ -109,7 +156,7 @@ a:hover {
   padding: 2rem;
   margin: 1rem;
   background-color: #ffff00;
-  border-radius: 10px;
+  border-radius: 10px 50px;
   cursor: pointer;
   transition: ease-in-out.31s;
 }
