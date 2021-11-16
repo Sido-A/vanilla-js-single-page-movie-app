@@ -15,7 +15,7 @@ const render_movie_card = (movies, element_id) => {
   movies.forEach((movie) => {
     const movie_img = `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.poster_path}`;
     element.innerHTML += `
-          <div class="card" id="${element_id}-${movie.id}">
+          <div onclick='show_movie_details_on_click(${movie.id})' class="card" id="${element_id}-${movie.id}">
             <div class="card-header"></div>
             <div class="card-body"><img src='${movie_img}' /></div>
             <div class="card-footer" style="color: #b537f2;>${movie.original_title}</div>
@@ -26,7 +26,7 @@ const render_movie_card = (movies, element_id) => {
 fetch(UPCOMING)
   .then((res) => res.json())
   .then((movies) => {
-    // console.log(movies);
+    console.log(movies.results);
     render_movie_card(movies.results, "upcoming");
   });
 
@@ -40,7 +40,7 @@ fetch(TRENDING)
 fetch(GENRES)
   .then((res) => res.json())
   .then((genres_arr) => {
-    console.log(genres_arr);
+    // console.log(genres_arr);
     const element = document.getElementById(`genres`);
     genres_arr.genres.forEach((genre) => {
       element.innerHTML += `
@@ -57,3 +57,23 @@ fetch(TOP_RATED)
     // console.log(movies.results);
     render_movie_card(movies.results, "top-rated");
   });
+
+const show_movie_details_on_click = (event) => {
+  console.log(event);
+  `<div class="movie-details-header">
+        <h3>VENOM</h3>
+      </div>
+      <div class="movie-details-body">
+        <img
+          src="https://image.tmdb.org/t/p/w185_and_h278_bestv2//rjkmN1dniUHVYAtwuV3Tji7FsDO.jpg"
+        />
+      
+        <p class="movie-details-descp">
+          After finding a host body in investigative reporter Eddie Brock, the
+          alien symbiote must face a new enemy, Carnage, the alter ego of
+          serial killer Cletus Kasady.
+        </p>
+      
+        <p class="movie-details-descp">Released Date: 2021-09-30</p>
+      </div>`;
+};

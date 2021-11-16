@@ -11,6 +11,8 @@ body {
   background-color: #050a30;
   font-family: "Press Start 2P", cursive;
   scrollbar-color: transparent transparent;
+  padding: 0;
+  margin: 0;
 }
 
 a {
@@ -20,6 +22,42 @@ a {
 
 a:hover {
   color: #7ec8e3;
+}
+
+.app-wrapper {
+  position: relative;
+}
+
+#movie-details {
+  position: absolute;
+  color: #ffff00;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.96);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 5rem;
+  display: none;
+}
+
+.show {
+  display: block !important;
+}
+
+.movie-details-header {
+  margin-bottom: 3rem;
+}
+
+.movie-details-body > img {
+  width: 300px;
+}
+
+.movie-details-descp {
+  text-align: left;
+  margin: auto;
+  max-width: 900px;
+  padding-top: 5rem;
 }
 .container {
   max-width: 1280px;
@@ -102,6 +140,10 @@ img {
   }
   h2 {
     font-size: 1.2rem;
+  }
+
+  #movie-details {
+    padding: 5rem 2rem;
   }
   .company-title > svg {
     width: 30px;
