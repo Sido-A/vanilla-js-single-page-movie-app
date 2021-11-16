@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+}
+
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #050a30;
+  font-family: "Press Start 2P", cursive;
+  scrollbar-color: transparent transparent;
+}
+
+a {
+  color: #ffff00;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #7ec8e3;
+}
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.title {
+  color: #ffff00;
+}
+
+.company-title {
+  text-align: center;
+}
+
+#trending,
+#upcoming,
+#top-rated {
+  display: flex;
+  overflow-x: scroll;
+  /* scrollbar-color: #050a30 #050a30; */
+}
+
+#genres {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  padding: 2rem;
+  margin: 1rem;
+  background-color: #ffff00;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: ease-in-out.31s;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  transition: ease-in-out 0.3s;
+}
+
+.genre-card {
+  width: calc(30%);
+}
+img {
+  border-radius: 10px;
+}
+
+.company-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.company-footer-left {
+  margin-top: 0;
+  vertical-align: sub;
+  text-align: left;
+}
+
+.company-footer-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.company-footer-right a {
+  margin-bottom: 1rem;
+}
+
+.copy-write {
+  text-align: center;
+}
+
+@media screen and (max-width: 900px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+  .company-title > svg {
+    width: 30px;
+    height: 30px;
+  }
+  #genres {
+    display: block;
+    overflow-y: scroll;
+    max-height: 50vh;
+  }
+
+  .genre-card {
+    width: calc(100% - 20px);
+  }
+}
