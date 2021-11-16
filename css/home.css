@@ -21,7 +21,7 @@ body {
 }
 
 a {
-  color: #ffff00;
+  color: #ffe12b;
   text-decoration: none;
 }
 
@@ -36,7 +36,7 @@ a:hover {
 #movie-details {
   position: fixed;
   overflow-y: scroll;
-  color: #ffff00;
+  color: #ffe12b;
   text-align: center;
   background-color: rgba(5, 10, 48, 0.99);
   top: 0;
@@ -61,7 +61,7 @@ a:hover {
 .close {
   font-size: 1.5rem;
   background-color: transparent;
-  color: #ffff00;
+  color: #ffe12b;
   border: none;
   cursor: pointer;
 }
@@ -88,7 +88,7 @@ a:hover {
 }
 
 .title {
-  color: #ffff00;
+  color: #ffe12b;
 }
 
 .company-title {
@@ -110,7 +110,7 @@ a:hover {
   justify-content: space-between;
   flex-direction: row-reverse;
   overflow-y: scroll;
-  color: #ffff00;
+  color: #ffe12b;
   text-align: center;
   background-color: rgba(5, 10, 48, 0.99);
   top: 0;
@@ -135,7 +135,7 @@ a:hover {
 .movie-per-genre-card {
   padding: 2rem;
   margin: 1rem;
-  background-color: #ffff00;
+  background-color: #ffe12b;
   border-radius: 10px 50px;
   cursor: pointer;
   transition: ease-in-out.31s;
@@ -156,7 +156,7 @@ a:hover {
 .card {
   padding: 2rem;
   margin: 1rem;
-  background-color: #ffff00;
+  background-color: #ffe12b;
   border-radius: 10px 50px;
   cursor: pointer;
   transition: ease-in-out.31s;
