@@ -28,7 +28,7 @@ const render_movie_card_per_genre = (movies, element_id) => {
   const element = document.getElementById(`${element_id}`);
   element.classList.add("show");
   element.innerHTML = `<div class="close-wrapper">
-  <button class="close" onclick="close_movie_details_on_click()">
+  <button class="close" onclick="close_movie_details_on_click(event)">
     x
   </button>
   </div>
@@ -126,7 +126,7 @@ const show_movie_details_on_click = (id) => {
 
       movie_details_element.innerHTML = `
       <div  class="close-wrapper">
-          <button class="close" onclick='close_movie_details_on_click()'>x</button>
+          <button class="close" onclick='close_movie_details_on_click(event)'>x</button>
       </div>
       <div class="movie-details-header">
           <h3>${movie.original_title}</h3>
@@ -145,11 +145,9 @@ const show_movie_details_on_click = (id) => {
     });
 };
 
-const close_movie_details_on_click = () => {
+const close_movie_details_on_click = (event) => {
   document.querySelector("body").style.overflow = "initial";
-  const close_button_element = document.querySelector(".close-wrapper");
-  console.log(close_button_element);
-  close_button_element.parentElement.classList.remove("show");
+  event.target.parentElement.parentElement.classList.remove("show");
 };
 
 const show_movie_per_genre = (genre_id) => {
