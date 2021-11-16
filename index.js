@@ -13,7 +13,7 @@ const TOP_RATED = `${BASE_URL}/movie/top_rated${API_KEY}`;
 const render_movie_card = (movies, element_id) => {
   const element = document.getElementById(`${element_id}`);
   movies.forEach((movie) => {
-    const movie_img = `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.poster_path}`;
+    const movie_img = `https://image.tmdb.org/t/p/w185_and_h278_bestv2${movie.poster_path}`;
     element.innerHTML += `
           <div onclick='show_movie_details_on_click(${movie.id})' class="card" id="${element_id}-${movie.id}">
             <div class="card-header"></div>
@@ -58,22 +58,38 @@ fetch(TOP_RATED)
     render_movie_card(movies.results, "top-rated");
   });
 
-const show_movie_details_on_click = (event) => {
-  console.log(event);
-  `<div class="movie-details-header">
-        <h3>VENOM</h3>
+const show_movie_details_on_click = (id) => {
+  const clicked_movie = `${BASE_URL}/movie/${id}${API_KEY}`;
+  fetch(clicked_movie)
+    .then((res) => res.json())
+    .then((movie) => {
+      document.querySelector("body").style.overflow = "hidden";
+      const movie_details_element = document.getElementById("movie-details");
+      movie_details_element.classList.add("show");
+
+      movie_details_element.innerHTML = `
+      <div  class="movie-details-close">
+          <button onclick='close_movie_details_on_click()' class="close">x</button>
       </div>
-      <div class="movie-details-body">
-        <img
-          src="https://image.tmdb.org/t/p/w185_and_h278_bestv2//rjkmN1dniUHVYAtwuV3Tji7FsDO.jpg"
-        />
-      
-        <p class="movie-details-descp">
-          After finding a host body in investigative reporter Eddie Brock, the
-          alien symbiote must face a new enemy, Carnage, the alter ego of
-          serial killer Cletus Kasady.
-        </p>
-      
-        <p class="movie-details-descp">Released Date: 2021-09-30</p>
-      </div>`;
+      <div class="movie-details-header">
+          <h3>${movie.original_title}</h3>
+        </div>
+        <div class="movie-details-body">
+          <img
+            src="https://image.tmdb.org/t/p/w185_and_h278_bestv2${movie.poster_path}"
+          />
+        
+          <p class="movie-details-descp">
+          ${movie.overview}
+          </p>
+        
+          <p class="movie-details-descp">Released Date: ${movie.release_date}</p>
+        </div>`;
+    });
+};
+
+const close_movie_details_on_click = () => {
+  document.querySelector("body").style.overflow = "initial";
+  const movie_details_element = document.getElementById("movie-details");
+  movie_details_element.classList.remove("show");
 };

@@ -7,10 +7,14 @@
   box-sizing: border-box;
 }
 
+html {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
 body {
   background-color: #050a30;
   font-family: "Press Start 2P", cursive;
-  scrollbar-color: transparent transparent;
   padding: 0;
   margin: 0;
 }
@@ -29,7 +33,8 @@ a:hover {
 }
 
 #movie-details {
-  position: absolute;
+  position: fixed;
+  overflow-y: scroll;
   color: #ffff00;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.96);
@@ -39,10 +44,24 @@ a:hover {
   right: 0;
   padding: 5rem;
   display: none;
+  z-index: 999;
 }
 
 .show {
   display: block !important;
+}
+
+.movie-details-close {
+  text-align: end;
+  margin-bottom: 3rem;
+}
+
+.close {
+  font-size: 1.5rem;
+  background-color: transparent;
+  color: #ffff00;
+  border: none;
+  cursor: pointer;
 }
 
 .movie-details-header {
