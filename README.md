@@ -1,5 +1,4 @@
-# Simple Valilla JS Single Page Movie App
-
+# Simple Vanilla JS Single Page Movie App
 
 ## Upcoming,Trending,Top Rated section
 
@@ -8,7 +7,7 @@
 3. Movie detail on selected movie
 
 ## Genre
-1. Fetch selected genre by id and show if the movie inculdes the id
+
+1. Fetch selected genre by id and show if the movie includes the id
 2. Infinite scroll on Y
 3. Movie detail on selected movie
-
