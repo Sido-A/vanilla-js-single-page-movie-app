@@ -53,9 +53,11 @@ const render_movie_card_per_genre = (movies, element_id) => {
             </div>
         `;
   });
+
+  infinite_scroll_y("movie-per-genre-container");
 };
 
-const infinite_scroll = (element) => {
+const infinite_scroll_x = (element) => {
   const content_element = document.getElementById(`${element}`);
   content_element.addEventListener("scroll", (e) => {
     let max_possible_scroll = content_element.scrollLeftMax;
@@ -68,11 +70,25 @@ const infinite_scroll = (element) => {
   });
 };
 
+const infinite_scroll_y = (element) => {
+  const content_element = document.querySelector(`.${element}`);
+  window.addEventListener("scroll", () => {
+    let max_possible_scroll = window.scrollMaxY;
+    let current_scroll_y = window.scrollY + 800;
+    if (current_scroll_y >= max_possible_scroll) {
+      content_element.childNodes.forEach((child) => {
+        const cloned_content = child.cloneNode(true);
+        content_element.appendChild(cloned_content);
+      });
+    }
+  });
+};
+
 fetch(UPCOMING)
   .then((res) => res.json())
   .then((movies) => {
     // console.log("UPCOMING", movies.results);
-    infinite_scroll("upcoming");
+    infinite_scroll_x("upcoming");
     render_movie_card(movies.results, "upcoming");
   });
 
@@ -81,7 +97,7 @@ fetch(TRENDING)
   .then((movies) => {
     // console.log("TRENDING", movies.results);
     MOVIES = [...MOVIES, ...movies.results];
-    infinite_scroll("trending");
+    infinite_scroll_x("trending");
     render_movie_card(movies.results, "trending");
   });
 
@@ -104,7 +120,7 @@ fetch(TOP_RATED)
   .then((movies) => {
     // console.log("TOP_RATED",movies.results);
     MOVIES = [...MOVIES, ...movies.results];
-    infinite_scroll("top-rated");
+    infinite_scroll_x("top-rated");
     render_movie_card(movies.results, "top-rated");
   });
 
@@ -151,11 +167,8 @@ const close_movie_details_on_click = (event) => {
 };
 
 const show_movie_per_genre = (genre_id) => {
-  console.log(genre_id);
   const movies_new_arr = MOVIES.filter((movie) =>
     movie.genre_ids.includes(genre_id)
   );
-  console.log(MOVIES);
-  console.log(movies_new_arr);
   render_movie_card_per_genre(movies_new_arr, "movie-per-genre");
 };
